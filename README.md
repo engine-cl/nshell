@@ -4,7 +4,7 @@ nshell
 **eNgine shell scripting framework.**  
 *(because sysadmin needs write script all the time)*
 
-*objetives:*
+**objetives:**
 - less is plus
 - write less
 - create script more readeable
