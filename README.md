@@ -1,11 +1,11 @@
 nshell
 ======
 
-*eNgine shell scripting framework.*  (because sysadmin needs write script all the time)
+**eNgine shell scripting framework.**  
+*(because sysadmin needs write script all the time)*
 
-**objetives:**
-
-- because less is plus
+*objetives:*
+- less is plus
 - write less
 - create script more readeable
 - think and write only logic script code
