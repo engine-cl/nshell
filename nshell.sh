@@ -6,7 +6,7 @@
 #: first version: 2013-10-24
 #: last modification: 2013-10-24
 #:
-#: use this lib as "source nshell.sh"
+#:
 #:
 #: comment standard per function
 #: 
@@ -65,6 +65,17 @@ zero_fill()
 timestamp()
 {
     echo $(date "+%Y-%m-%d %H:%M:%S")
+}
+
+#: name: get_date()
+#: usage: get_date
+#: desc: get standard no spaces get_date
+#: usage as: now=$(get_date)
+#: params: none
+#: return: string with "+%Y-%m-%d"
+get_date()
+{
+    echo $(date "+%Y-%m-%d")
 }
 
 #: name: usage()
