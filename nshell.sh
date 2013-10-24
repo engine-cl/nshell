@@ -6,7 +6,7 @@
 #: first version: 2013-10-24
 #: last modification: 2013-10-24
 #:
-#:
+#: use this lib as "source nshell.sh"
 #:
 #: comment standard per function
 #: 
