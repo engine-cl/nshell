@@ -7,7 +7,7 @@ objetives:
 ----------
 - because less is plus
 - write less
-- more readeable
-- think and write only logical script code
+- create script more readeable
+- think and write only logic script code
 - don't write redundant code.
 - support more *nix with the same code.
