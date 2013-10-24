@@ -1,7 +1,7 @@
 nshell
 ======
 
-engine shell framework for scripting 
+eNgine shell scripting framework.  
 
 objetives:
 because less is plus
