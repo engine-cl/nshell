@@ -1,8 +1,7 @@
 nshell
 ======
 
-eNgine shell scripting framework.  
-
+eNgine shell scripting framework.  (because sysadmin needs write script all the time)
 objetives:
 ----------
 - because less is plus
