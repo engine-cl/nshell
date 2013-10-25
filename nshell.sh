@@ -142,12 +142,11 @@ require_user ()
     sw=0
     for user in $@; do
         id |awk '{print $1}'| grep $user > /dev/null 2>&1
-        if [ $? -eq 0 ]; then
-            sw=1
-        fi
+        [[ $? -eq 0 ]] && sw=1
     done
     if [ $sw -eq 0 ]; then
         echo -e " para ejecutar este script, Ud. debe ser uno de estos usuarios ($@)."
         exit 1
     fi
 }
+
