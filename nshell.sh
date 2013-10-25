@@ -75,7 +75,7 @@ timestamp()
 #: return: string with "+%Y-%m-%d"
 get_date()
 {
-    echo $(date "+%Y-%m-%d)
+    echo $(date "+%Y-%m-%d")
 }
 
 #: name: usage()
