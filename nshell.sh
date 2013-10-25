@@ -109,3 +109,45 @@ check_for_cli_args()
         exit 1
     fi
 }
+
+#: name:
+#: usage:
+#: desc:
+#: usage as:
+#: params:
+#: return:
+continue_question()
+{
+    while [ true ]; do
+        echo -e " Do you want continue? (y/n)? \c "
+        read r
+        case $r in
+            y) return 0 ;;
+            n) return 1 ;;
+            *) echo "Use: s/n"
+               sleep 1 ;;
+        esac
+        clear
+    done
+}
+
+#: name:
+#: usage:
+#: desc:
+#: usage as:
+#: params:
+#: return:
+require_user ()
+{
+    sw=0
+    for user in $@; do
+        id |awk '{print $1}'| grep $user > /dev/null 2>&1
+        if [ $? -eq 0 ]; then
+            sw=1
+        fi
+    done
+    if [ $sw -eq 0 ]; then
+        echo -e " para ejecutar este script, Ud. debe ser uno de estos usuarios ($@)."
+        exit 1
+    fi
+}
