@@ -4,7 +4,7 @@
 #: license: BSD
 #: version: 0.1
 #: first version: 2013-10-24
-#: last modification: 2013-10-24
+#: last modification: 2013-10-25
 #:
 #:
 #:
@@ -75,15 +75,15 @@ timestamp()
 #: return: string with "+%Y-%m-%d"
 get_date()
 {
-    echo $(date "+%Y-%m-%d")
+    echo $(date "+%Y-%m-%d)
 }
 
 #: name: usage()
-#: usage: 
-#: desc:
-#: usage as:
-#: params:
-#: return:
+#: usage: usage <message help>
+#: desc: exit the script and display message
+#: usage as: usage <message>
+#: params: string
+#: return: exit or none
 usage()
 {
     echo "Usage: $0 $1"
@@ -91,15 +91,17 @@ usage()
 }
 
 #: name: check_for_cli_args()
-#: usage: check_for_cli_args [args length expected] [exit message for usage display] 
+#: usage: check_for_cli_args [args length expected] [exit message for usage display] [array args]
 #: desc: valides the args lengs required to works in the script calls
-#: usage as: check_for_cli_args 2 "<val_1> <val_2"
+#: usage as: check_for_cli_args 2 "<val_1> <val_2> $@"
 #: params: int argsc, string msg
 #: return: exit if fail or none.
 check_for_cli_args()
 {
     argsc=$1
-    message=$2
+    shift
+    message=$1
+    shift
     if [ $# -lt $argsc ] ; then
         usage $message
         exit 1
