@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 #: nShell eNgine shell scripting framework
 #: author: Jorge A. Medina.
+#: repository: https://github.com/mnothic/nshell
 #: license: BSD
 #: version: 0.1
 #: first version: 2013-10-24
 #: last modification: 2013-10-25
-#:
-#:
-#:
+#: ksh include form as . /path/to/nshell.sh
+#: bash include form as source /path/to/nshell.sh
+#: before include script set an alias soruce=.
+#: and it's work in bash and ksh
 #: comment standard per function
 #: 
 #: name:
