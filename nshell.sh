@@ -5,7 +5,7 @@
 #: license: BSD
 #: version: 0.1
 #: first version: 2013-10-24
-#: last modification: 2013-10-25
+#: last modification: 2013-10-27
 #: ksh include form as . /path/to/nshell.sh
 #: bash include form as source /path/to/nshell.sh
 #: before include script set an alias soruce=.
@@ -148,6 +148,20 @@ require_user ()
         echo -e " para ejecutar este script, Ud. debe ser uno de estos usuarios ($@)."
         exit 1
     fi
+}
+
+#: name:
+#: usage:
+#: desc:
+#: usage as:
+#: params:
+#: return:
+trim()
+{
+    output=$1
+    output=${output%%*( )}
+    output=${output##*( )}
+    echo $output
 }
 
 #: name:
