@@ -156,7 +156,6 @@ require_user ()
 #: usage as:
 #: params:
 #: return:
-require_user 
 rtrim()
 {
     output=$1
@@ -169,7 +168,6 @@ rtrim()
 #: usage as:
 #: params:
 #: return:
-require_user 
 ltrim()
 {
     output=$1
