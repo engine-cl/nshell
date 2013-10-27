@@ -150,3 +150,28 @@ require_user ()
     fi
 }
 
+#: name:
+#: usage:
+#: desc:
+#: usage as:
+#: params:
+#: return:
+require_user 
+rtrim()
+{
+    output=$1
+    echo ${output%%*( )}
+}
+
+#: name:
+#: usage:
+#: desc:
+#: usage as:
+#: params:
+#: return:
+require_user 
+ltrim()
+{
+    output=$1
+    echo ${output##*( )}
+}
