@@ -15,14 +15,14 @@ nshell
 guide lines.
 -------------
 **functions**
-<code>
+<pre>
 name_function ()
 {
   ...
 }
-</code>
+</pre>
 **conditionals**
-<code>
+<pre>
 if [ conditions ]; then
   ...
 elif [ condition ]; then
@@ -30,12 +30,12 @@ elif [ condition ]; then
 else
   ...
 fi
-</code>
+</pre>
 **loops**
-<code>
+<pre>
 for|while [ condition or iterator ] 
 do
   ...
 done
-</code>
+</pre>
 
