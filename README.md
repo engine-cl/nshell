@@ -39,7 +39,14 @@ do
 done
 </pre>
 **calls**
+
 to execute commands or string functions use:
+- good:
 <pre>
-$(called_cmd) instead `called_cmd`
+$(called_cmd)
 </pre>
+- wrong:
+<pre>
+`called_cmd`
+</pre> 
+not use `` because $() is more redeable 
