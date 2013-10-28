@@ -110,15 +110,17 @@ check_for_cli_args()
     fi
 }
 
-#/ name:
-#/ usage:
-#/ desc:
-#/ usage as:
-#/ params:
-#/ return:
+#/ name: continue_question()
+#/ usage: continue_question
+#/ desc: this function stop execution process and interact with executor for continue or not
+#/ returns 0 to continue and 1 if not
+#/ usage as: continue_question; [[ $? -eq 0 ]] && continue || exit 0
+#/ params: none
+#/ return: unsigned int
 continue_question()
 {
-    while [ true ]; do
+    while [ true ]
+    do
         echo -e " Do you want continue? (y/n)? \c "
         read r
         case $r in
@@ -131,13 +133,13 @@ continue_question()
     done
 }
 
-#/ name:
-#/ usage:
-#/ desc:
-#/ usage as:
-#/ params:
-#/ return:
-require_user ()
+#/ name: require_user()
+#/ usage: require_user user1 user2 ... userN
+#/ desc: if the user who launches the script not be in the list stop the script
+#/ usage as: requiere_user user ... userN
+#/ params: string $@
+#/ return: none or exit.
+require_user()
 {
     sw=0
     for user in $@; do
@@ -150,40 +152,35 @@ require_user ()
     fi
 }
 
-#/ name:
-#/ usage:
-#/ desc:
-#/ usage as:
-#/ params:
-#/ return:
+#/ name: trim()
+#/ usage: trim $string_to_trim
+#/ desc: this trim white space both side of string
+#/ usage as: clean_var=$(trim " hola mundo ") $clean_var="hola mundo"
+#/ params: string
+#/ return: string
 trim()
 {
-    output=$1
-    output=${output%%*( )}
-    output=${output##*( )}
-    echo $output
+    echo "$@" | sed -e 's/^ *//g' -e 's/ *$//g'
 }
 
-#/ name:
-#/ usage:
-#/ desc:
-#/ usage as:
-#/ params:
-#/ return:
+#/ name: rtrim()
+#/ usage: rtrim $string_to_trim
+#/ desc: this trim white space right side of string
+#/ usage as: clean_var=$(rtrim " hola mundo ") $clean_var=" hola mundo"
+#/ params: string
+#/ return: string
 rtrim()
 {
-    output=$1
-    echo ${output%%*( )}
+    echo "$@" | sed 's/ *$//g'
 }
 
-#/ name:
-#/ usage:
-#/ desc:
-#/ usage as:
-#/ params:
-#/ return:
+#/ name: ltrim()
+#/ usage: ltrim $string_to_trim
+#/ desc: this trim white space left side of string
+#/ usage as: clean_var=$(ltrim " hola mundo ") $clean_var="hola mundo "
+#/ params: string
+#/ return: string
 ltrim()
 {
-    output=$1
-    echo ${output##*( )}
+    echo "$@" | sed 's/^ *//g'
 }
