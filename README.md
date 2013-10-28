@@ -38,4 +38,8 @@ do
   ...
 done
 </pre>
-
+**calls**
+to execute commands or string functions use:
+<pre>
+$(called_cmd) instead `called_cmd`
+</pre>
