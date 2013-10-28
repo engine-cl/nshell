@@ -50,3 +50,15 @@ $(called_cmd)
 \`called_cmd\`
 </pre> 
 not use `` because $() is more redeable 
+
+**comments**
+<pre>
+#/ name:
+#/ usage:
+#/ desc:
+#/ usage as:
+#/ params:
+#/ return:
+</pre>
+this comment are parsed to build docs with shocco.sh
+http://rtomayko.github.io/shocco/
