@@ -47,6 +47,6 @@ $(called_cmd)
 </pre>
 - wrong:
 <pre>
-`called_cmd`
+\`called_cmd\`
 </pre> 
 not use `` because $() is more redeable 
