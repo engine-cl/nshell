@@ -12,14 +12,17 @@ nshell
 - don't write redundant code.
 - support more *nix with the same code.
 
-** guide lines **
-*functions*
+guide lines.
+-------------
+**functions**
+<code>
 name_function ()
 {
   ...
 }
-
-*conditionals*
+</code>
+**conditionals**
+<code>
 if [ conditions ]; then
   ...
 elif [ condition ]; then
@@ -27,11 +30,12 @@ elif [ condition ]; then
 else
   ...
 fi
-
-*loops*
+</code>
+**loops**
+<code>
 for|while [ condition or iterator ] 
 do
   ...
 done
-
+</code>
 
