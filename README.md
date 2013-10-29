@@ -31,6 +31,10 @@ else
   ...
 fi
 </pre>
+in line conditions
+<pre>
+[[ condition ]] && true || false
+</pre>
 **loops**
 <pre>
 for value in iterator
