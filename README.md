@@ -33,7 +33,21 @@ fi
 </pre>
 in line conditions
 <pre>
-[[ condition ]] && true || false
+[[ $a -gt $b ]] && echo $a || echo $b
+</pre>
+compare integers
+<pre>
+-lt (<)
+-gt (>)
+-le (<=)
+-ge (>=)
+-eq (==)
+-ne (!=)
+</pre>
+compare strings
+<pre>
+== (equal)
+!= (distinct)
 </pre>
 **loops**
 <pre>
