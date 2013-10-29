@@ -12,7 +12,7 @@ nshell
 - don't write redundant code.
 - support more *nix with the same code.
 
-guide lines.
+guidelines.
 -------------
 **functions**
 <pre>
