@@ -8,9 +8,9 @@ nshell
 - write onece and use much
 - write less because less is a plus
 - create script more readeable
-- think and write only logic script code
-- don't write redundant code.
-- support more *nix with the same code.
+- think and write only a logic code in the new script 
+- don't write redundant code into multiple script
+- support *nix more common through their defaults shells with the same code.
 
 guidelines.
 -------------
