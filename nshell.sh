@@ -35,7 +35,7 @@ space_fill()
     value="$@"
     len=$(expr $len - ${#value})
     spaces=''
-    x=0             
+    x=0
     while [ $x -lt $len ]
     do
         spaces="$spaces "
@@ -60,7 +60,7 @@ zero_fill()
     value=$2
     len=$(expr $1 - ${#value})
     zeroes=''
-    x=0         
+    x=0
     while [ $x -lt $len ]
     do
         zeroes=${zeroes}'0'
@@ -230,7 +230,7 @@ running()
 find_string_in_file()
 {
 	if [[ -f $2 ]]; then
-		grep -v "^#" $2 | grep -i "$1" > /dev/null 2>&1 
+		grep -v "^#" $2 | grep -i "$1" > /dev/null 2>&1
 		[[ $? -eq 0 ]] && echo 'YES' || echo 'NOT'
 	else
 		echo 'NOT'
@@ -246,7 +246,7 @@ get_color()
 {
     case "$1" in
         "black")
-            color="\033[0;30m" 
+            color="\033[0;30m"
             ;;
         "red")
             color="\033[0;31m"
@@ -264,10 +264,10 @@ get_color()
             color="\033[0;35m"
             ;;
         "cyan")
-            color="\033[0;36m"  
+            color="\033[0;36m"
             ;;
         "white")
-            color="\033[0;37m" 
+            color="\033[0;37m"
             ;;
         *)
             color="\033[0m"
@@ -284,6 +284,6 @@ color_string()
     if [[ $(get_os_name) == 'Linux' ]]; then
         echo -e "${color}${str}${no_color}"
     else
-        echo "${color}${str}${no_color}" 
+        echo "${color}${str}${no_color}"
     fi
 }
