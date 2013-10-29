@@ -77,7 +77,7 @@ $(called_cmd)
 </pre> 
 not use `` because $() is more redeable 
 
-**comments**
+**comments mandatory before function implementation**
 <pre>
 #/ name:
 #/ usage:
@@ -86,5 +86,4 @@ not use `` because $() is more redeable
 #/ params:
 #/ return:
 </pre>
-this comment are parsed to build docs with shocco.sh
-http://rtomayko.github.io/shocco/
+ToDo: make a parser docs builder.
