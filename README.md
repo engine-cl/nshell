@@ -33,10 +33,18 @@ fi
 </pre>
 **loops**
 <pre>
-for|while [ condition or iterator ] 
+for value in iterator
 do
   ...
 done
+</pre>
+
+<pre>
+while [ conditions ]
+do
+  ...
+done
+
 </pre>
 **calls**
 
