@@ -5,8 +5,8 @@ nshell
 *(because sysadmin needs write script all the time)*
 
 **objetives:**
-- less is plus
-- write less
+- write onece and use much
+- write less because less is a plus
 - create script more readeable
 - think and write only logic script code
 - don't write redundant code.
