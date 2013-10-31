@@ -10,8 +10,8 @@
 #/ bash include form as source /path/to/nshell.sh
 #/ before include script set an alias soruce=.
 #/ and it's work in bash and ksh
-#/ comment standard per function
 #/ 
+#/ comment standard per function:
 #/ name:
 #/ usage:
 #/ desc:
@@ -184,3 +184,101 @@ ltrim()
 {
     echo "$@" | sed 's/^ *//g'
 }
+
+lower()
+{
+    echo "$@" | tr '[:upper:]' '[:lower:]'
+}
+
+upper()
+{
+    echo "$@" | tr '[:lower:]' '[:upper:]'
+}
+
+#/ name: exist()
+#/ usage: exist [file_path]
+#/ desc: check if exist file passed as param.
+#/ usage as: call as $() shell exec
+#/ params: string
+#/ return: string
+file_exist()
+{
+	[[ -f $1 ]] && echo 'YES' || echo 'NOT'
+}
+
+#: checks if proc passed as argument runs.
+#: returns string
+#: call as $() shell exec
+running()
+{
+	ret=$(ps auxw |grep -i "$1" |grep -v grep|wc -l |tr -d ' ')
+	[[ $ret -gt 0 ]] && echo 'YES' || echo 'NOT'
+}
+
+#:
+#: find string in a file both passed as argument.
+#: returns string
+#: call as $() shell exec
+find_string_in_file()
+{
+	if [[ -f $2 ]]; then
+		grep -v "^#" $2 | grep -i "$1" > /dev/null 2>&1 
+		[[ $? -eq 0 ]] && echo 'YES' || echo 'NOT'
+	else
+		echo 'NOT'
+	fi
+}
+
+get_os_name()
+{
+    echo $(uname -s)
+}
+
+get_color()
+{
+    case "$1" in
+        "black")
+            color="\033[0;30m" 
+            ;;
+        "red")
+            color="\033[0;31m"
+            ;;
+        "green")
+            color="\033[0;32m"
+            ;;
+        "yellow")
+            color="\033[0;33m"
+            ;;
+        "blue")
+            color="\033[0;34m"
+            ;;
+        "magenta")
+            color="\033[0;35m"
+            ;;
+        "cyan")
+            color="\033[0;36m"  
+            ;;
+        "white")
+            color="\033[0;37m" 
+            ;;
+        *)
+            color="\033[0m"
+            ;;
+    esac
+    echo $color
+}
+
+color_string()
+{
+    color=$(get_color $1)
+    no_color=$(get_color none)
+    str=$2
+    if [[ $(get_os_name) == 'Linux' ]]; then
+        echo -e "${color}${str}${no_color}"
+    else
+        echo "${color}${str}${no_color}" 
+    fi
+}
+
+
+
