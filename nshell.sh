@@ -23,21 +23,30 @@
 #/ name: space_fill()
 #/ usage: space_fill [total length expected] [value to space fill] [side left|right]
 #/ desc: fill with left or right spaces to complete length expected. Remember "quotes in the call"
-#/ example: foovar="$(space_fill 12 'string' left)"; echo "$foovar" 
-#/ params: int len, string value, string <left|right>
+#/ example: foovar="$(space_fill 12 left 'string' )"; echo "$foovar" 
+#/ params: int len, string <left|right>, string value
 #/ return: string with the spaces fill expected
 space_fill()
 {
-    value=$2
-    side=$3
-    len=$(expr $1 - ${#value})
+    len=$1
+    shift
+    side=$1
+    shift
+    value="$@"
+    len=$(expr $len - ${#value})
     spaces=''
-    for i in $(seq $len)
+    x=0             
+    while [ $x -lt $len ]
     do
-        spaces=${spaces}' '
+        spaces="$spaces "
+        x=$(expr $x + 1)
     done
-    declare $side="$spaces"
-    echo "${left}${value}${right}"
+    side=$(lower $side)
+    if [[ $side == 'left' ]]; then
+        echo "${spaces}${value}"
+    else
+        echo "${value}${spaces}"
+    fi
 }
 
 #/ name: zero_fill()
@@ -104,10 +113,7 @@ check_for_cli_args()
     shift
     message=$1
     shift
-    if [ $# -lt $argsc ] ; then
-        usage $message
-        exit 1
-    fi
+    [[ $# -lt $argsc ]] && usage $message
 }
 
 #/ name: continue_question()
@@ -195,8 +201,8 @@ upper()
     echo "$@" | tr '[:lower:]' '[:upper:]'
 }
 
-#/ name: exist()
-#/ usage: exist [file_path]
+#/ name: file_exist()
+#/ usage: file_exist [file_path]
 #/ desc: check if exist file passed as param.
 #/ usage as: call as $() shell exec
 #/ params: string
@@ -279,6 +285,3 @@ color_string()
         echo "${color}${str}${no_color}" 
     fi
 }
-
-
-
