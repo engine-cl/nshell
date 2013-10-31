@@ -60,9 +60,11 @@ zero_fill()
     value=$2
     len=$(expr $1 - ${#value})
     zeroes=''
-    for i in $(seq $len)
+    x=0         
+    while [ $x -lt $len ]
     do
         zeroes=${zeroes}'0'
+        x=$(expr $x + 1)
     done
     echo "${zeroes}${value}"
 }
