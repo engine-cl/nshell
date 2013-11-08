@@ -6,10 +6,8 @@
 #/ version: 0.1
 #/ first version: 2013-10-24
 #/ last modification: 2013-10-27
-#/ ksh include form as . /path/to/nshell.sh
-#/ bash include form as source /path/to/nshell.sh
-#/ before include script set an alias soruce=.
-#/ and it's work in bash and ksh
+#/ include as . /path/to/nshell.sh this works in 
+#/ both supported shells
 #/ 
 #/ comment standard per function:
 #/ name:
@@ -35,7 +33,7 @@ space_fill()
     value="$@"
     len=$(expr $len - ${#value})
     spaces=''
-    x=0
+    x=0             
     while [ $x -lt $len ]
     do
         spaces="$spaces "
@@ -60,11 +58,9 @@ zero_fill()
     value=$2
     len=$(expr $1 - ${#value})
     zeroes=''
-    x=0
-    while [ $x -lt $len ]
+    for i in $(seq $len)
     do
         zeroes=${zeroes}'0'
-        x=$(expr $x + 1)
     done
     echo "${zeroes}${value}"
 }
@@ -100,6 +96,12 @@ get_date()
 usage()
 {
     echo "Usage: $0 $1"
+    exit 1
+}
+
+exit_message()
+{
+    echo $@
     exit 1
 }
 
@@ -193,11 +195,23 @@ ltrim()
     echo "$@" | sed 's/^ *//g'
 }
 
+#/ name:
+#/ usage:
+#/ desc:
+#/ usage as:
+#/ params:
+#/ return:
 lower()
 {
     echo "$@" | tr '[:upper:]' '[:lower:]'
 }
 
+#/ name:
+#/ usage:
+#/ desc:
+#/ usage as:
+#/ params:
+#/ return:
 upper()
 {
     echo "$@" | tr '[:lower:]' '[:upper:]'
@@ -230,23 +244,35 @@ running()
 find_string_in_file()
 {
 	if [[ -f $2 ]]; then
-		grep -v "^#" $2 | grep -i "$1" > /dev/null 2>&1
+		grep -v "^#" $2 | grep -i "$1" > /dev/null 2>&1 
 		[[ $? -eq 0 ]] && echo 'YES' || echo 'NOT'
 	else
 		echo 'NOT'
 	fi
 }
 
+#/ name:
+#/ usage:
+#/ desc:
+#/ usage as:
+#/ params:
+#/ return:
 get_os_name()
 {
     echo $(uname -s)
 }
 
+#/ name:
+#/ usage:
+#/ desc:
+#/ usage as:
+#/ params:
+#/ return:
 get_color()
 {
     case "$1" in
         "black")
-            color="\033[0;30m"
+            color="\033[0;30m" 
             ;;
         "red")
             color="\033[0;31m"
@@ -264,10 +290,10 @@ get_color()
             color="\033[0;35m"
             ;;
         "cyan")
-            color="\033[0;36m"
+            color="\033[0;36m"  
             ;;
         "white")
-            color="\033[0;37m"
+            color="\033[0;37m" 
             ;;
         *)
             color="\033[0m"
@@ -276,6 +302,12 @@ get_color()
     echo $color
 }
 
+#/ name:
+#/ usage:
+#/ desc:
+#/ usage as:
+#/ params:
+#/ return:
 color_string()
 {
     color=$(get_color $1)
@@ -284,6 +316,6 @@ color_string()
     if [[ $(get_os_name) == 'Linux' ]]; then
         echo -e "${color}${str}${no_color}"
     else
-        echo "${color}${str}${no_color}"
+        echo "${color}${str}${no_color}" 
     fi
 }
