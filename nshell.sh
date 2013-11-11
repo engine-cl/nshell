@@ -195,23 +195,23 @@ ltrim()
     echo "$@" | sed 's/^ *//g'
 }
 
-#/ name:
-#/ usage:
-#/ desc:
-#/ usage as:
-#/ params:
-#/ return:
+#/ name:lower()
+#/ usage: lower string
+#/ desc: make strings lower case
+#/ usage as: $(lower string)
+#/ params: string
+#/ return: string
 lower()
 {
     echo "$@" | tr '[:upper:]' '[:lower:]'
 }
 
-#/ name:
-#/ usage:
-#/ desc:
-#/ usage as:
-#/ params:
-#/ return:
+#/ name: upper()
+#/ usage: upper string
+#/ desc: make strings upper case
+#/ usage as: $(upper string)
+#/ params: string
+#/ return: string
 upper()
 {
     echo "$@" | tr '[:lower:]' '[:upper:]'
@@ -236,17 +236,17 @@ file_exist()
 #/ return: string
 running()
 {
-	ret=$(ps auxw |grep -i "$1" |grep -v grep|wc -l |tr -d ' ')
+	ret=$(ps -ef |grep -i "$1" |grep -v grep|wc -l |tr -d ' ')
 	[[ $ret -gt 0 ]] && echo 'YES' || echo 'NOT'
 }
 
-#/ name: self_running()
-#/ usage: self_running
+#/ name: iam_running()
+#/ usage: iam_running
 #/ desc: check if self process is running.
-#/ usage as: call as $(self_running) shell exec
+#/ usage as: call as $(iam_running) shell exec
 #/ params: None
 #/ return: string
-self_running()
+iam_running()
 {
     procs=0
     for pid in $(ps -ef |grep $0 |grep -v grep|awk '{print $2}')
@@ -274,23 +274,23 @@ find_string_in_file()
 	fi
 }
 
-#/ name:
-#/ usage:
-#/ desc:
-#/ usage as:
-#/ params:
-#/ return:
+#/ name:get_os_name()
+#/ usage: get_os_name
+#/ desc: returns os name string
+#/ usage as: $(get_os_name)
+#/ params: None
+#/ return: string
 get_os_name()
 {
     echo $(uname -s)
 }
 
-#/ name:
-#/ usage:
-#/ desc:
-#/ usage as:
-#/ params:
-#/ return:
+#/ name: get_color()
+#/ usage: get_color [black|red|green|yellow|blue|magenta|cyan|white]
+#/ desc: return a color string
+#/ usage as: $(get_color color)
+#/ params: string
+#/ return: string
 get_color()
 {
     case "$1" in
@@ -325,12 +325,12 @@ get_color()
     echo $color
 }
 
-#/ name:
-#/ usage:
-#/ desc:
-#/ usage as:
-#/ params:
-#/ return:
+#/ name: color_string()
+#/ usage: color_string color str
+#/ desc: pirnt string with color
+#/ usage as: $(color_string red "colored as red")
+#/ params: color_name, string_to_colored
+#/ return: string
 color_string()
 {
     color=$(get_color $1)
