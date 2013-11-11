@@ -1,26 +1,19 @@
 #!/usr/bin/env bash
 # download assert.sh
 # 
+. ./nshell.sh
 . ./assert.sh
 
-space_fill
-zero_fill
-timestamp
-get_date
-usage
-exit_message
-check_for_cli_args
-continue_question
-require_user
-trim
-rtrim
-ltrim
-lower
-upper
-file_exist
-running
-iam_running
-find_string_in_file
-get_os_name
-get_color
-color_string
+assert "exit_message TDD" "TDD"
+assert_raises "exit_message TDD" 1
+assert "trim ' hola '" "hola"
+assert "rtrim ' hola '" " hola"
+assert "ltrim ' hola '" "hola "
+assert "lower LOWER" "lower"
+assert "upper upper" "UPPER"
+assert "file_exist ./assert.sh" "YES"
+assert "iam_running test_nshell.sh" "NOT"
+assert "get_os_name" "Linux"
+assert "find_string_in_file trim nshell.sh" "YES"
+
+assert_end
