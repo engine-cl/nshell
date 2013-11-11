@@ -5,7 +5,7 @@
 #/ license: BSD
 #/ version: 0.1
 #/ first version: 2013-10-24
-#/ last modification: 2013-10-27
+#/ last modification: 2013-11-11
 #/ include as . /path/to/nshell.sh this works in 
 #/ both supported shells
 #/ 
@@ -228,19 +228,42 @@ file_exist()
 	[[ -f $1 ]] && echo 'YES' || echo 'NOT'
 }
 
-#: checks if proc passed as argument runs.
-#: returns string
-#: call as $() shell exec
+#/ name: running()
+#/ usage: running "param"
+#/ desc: check if process is running.
+#/ usage as: call as $(running process_pattern) shell exec
+#/ params: string
+#/ return: string
 running()
 {
 	ret=$(ps auxw |grep -i "$1" |grep -v grep|wc -l |tr -d ' ')
 	[[ $ret -gt 0 ]] && echo 'YES' || echo 'NOT'
 }
 
-#:
-#: find string in a file both passed as argument.
-#: returns string
-#: call as $() shell exec
+#/ name: self_running()
+#/ usage: self_running
+#/ desc: check if self process is running.
+#/ usage as: call as $(self_running) shell exec
+#/ params: None
+#/ return: string
+self_running()
+{
+    procs=0
+    for pid in $(ps -ef |grep $0 |grep -v grep|awk '{print $2}')
+    do
+        aux=$(ps -ef |grep $0 |grep -v grep|awk '{print $3}' |grep $pid |wc -l |tr -d ' ')
+        [[ $aux -eq 0 ]] && procs=$(expr $procs + 1)
+    done
+	[[ $procs -gt 1 ]] && echo 'YES' || echo 'NOT'
+}
+
+
+#/ name: find_string_in_file() 
+#/ usage: find_string_in_file string_pattern file_to_search
+#/ desc: find string in a file both passed as argument.
+#/ usage as: call as $() shell exec
+#/ params: string, file
+#/ return: string
 find_string_in_file()
 {
 	if [[ -f $2 ]]; then
