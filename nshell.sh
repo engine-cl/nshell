@@ -6,9 +6,9 @@
 #/ version: 0.1
 #/ first version: 2013-10-24
 #/ last modification: 2013-11-11
-#/ include as . /path/to/nshell.sh this works in 
+#/ include as . /path/to/nshell.sh this works in
 #/ both supported shells
-#/ 
+#/
 #/ comment standard per function:
 #/ name:
 #/ usage:
@@ -33,7 +33,7 @@ space_fill()
     value="$@"
     len=$(expr $len - ${#value})
     spaces=''
-    x=0             
+    x=0
     while [ $x -lt $len ]
     do
         spaces="$spaces "

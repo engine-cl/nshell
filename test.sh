@@ -4,14 +4,14 @@
 . ./nshell.sh
 . ./assert.sh
 
-assert "space_fill"
-assert "zero_fill"
-assert "timestamp" ""
-assert "get_date" "d{4}-d{2}-d{2}"
-assert "usage hola" "Usage: hola"
+assert "space_fill 10 right test" "test      "
+assert "zero_fill 10 1" "0000000001"
+assert "timestamp" "$(date "+%Y-%m-%d %H:%M:%S")"
+assert "get_date" "$(date "+%Y-%m-%d")"
+assert "usage hola" "Usage: $0 hola"
 assert_raises "usage hola" 1
-assert "check_for_cli_args 2 $@" 0 
-assert "require_user user" 1
+assert "check_for_cli_args 2 fail" "Usage: $0 fail" 
+assert "require_user user" " para ejecutar este script, Ud. debe ser uno de estos usuarios (user)."
 assert "exit_message TDD" "TDD"
 assert_raises "exit_message TDD" 1
 assert "trim ' hola '" "hola"
