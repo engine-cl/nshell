@@ -228,6 +228,28 @@ file_exist()
 	[[ -f $1 ]] && echo 'YES' || echo 'NOT'
 }
 
+#/ name: ceil()
+#/ usage: ceil [float]
+#/ desc: ceiling float number.
+#/ usage as: call as $() shell exec
+#/ params: float
+#/ return: integer
+ceil()
+{
+	echo $(expr ${1/.*} + 1)
+}
+
+#/ name: floor()
+#/ usage: floor [float]
+#/ desc: to floor float number.
+#/ usage as: call as $() shell exec
+#/ params: float
+#/ return: integer
+floor()
+{
+	echo $(expr ${1/.*})
+}
+
 #/ name: running()
 #/ usage: running "param"
 #/ desc: check if process is running.
