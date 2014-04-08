@@ -17,7 +17,8 @@
 #/ params:
 #/ return:
 
-
+# set default lang to scripts loser's don't use english.
+export LANG="en_US.UTF-8"
 #/ name: space_fill()
 #/ usage: space_fill [total length expected] [value to space fill] [side left|right]
 #/ desc: fill with left or right spaces to complete length expected. Remember "quotes in the call"
