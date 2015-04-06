@@ -51,7 +51,7 @@ compare strings
 </pre>
 **loops**
 <pre>
-for value in iterator
+for value in iterable
 do
   ...
 done
