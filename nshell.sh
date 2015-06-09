@@ -17,7 +17,8 @@
 #/ params:
 #/ return:
 
-# set default lang to scripts because loser's don't use english.
+# set default lang to scripts only use english 
+# by default in the servers or some issues will occurs.
 export LANG="en_US.UTF-8"
 #/ name: space_fill()
 #/ usage: space_fill [total length expected] [value to space fill] [side left|right]
