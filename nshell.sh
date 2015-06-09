@@ -138,7 +138,7 @@ continue_question()
         case $r in
             y) return 0 ;;
             n) return 1 ;;
-            *) echo "Use: s/n"
+            *) echo "Use: y/n"
                sleep 1 ;;
         esac
         clear
