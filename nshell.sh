@@ -97,7 +97,7 @@ get_date()
 #/ return: exit or none
 usage()
 {
-    echo "Usage: $0 $1"
+    echo "Usage: $@"
     exit 1
 }
 
