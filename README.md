@@ -12,7 +12,7 @@ nshell
 - don't write redundant code into multiple script
 - support *nix more common through their defaults shells with the same code.
 
-guidelines.
+Guidelines (google shell scripting gudelines compliant).
 -------------
 **functions**
 <pre>
