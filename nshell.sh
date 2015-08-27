@@ -36,8 +36,7 @@ space_fill()
     len=$(expr $len - ${#value})
     spaces=''
     x=0
-    while [ $x -lt $len ]
-    do
+    while [ $x -lt $len ]; do
         spaces="$spaces "
         x=$(expr $x + 1)
     done
@@ -60,8 +59,7 @@ zero_fill()
     value=$2
     len=$(expr $1 - ${#value})
     zeroes=''
-    for i in $(seq $len)
-    do
+    for i in $(seq $len); do
         zeroes=${zeroes}'0'
     done
     echo "${zeroes}${value}"
@@ -131,8 +129,7 @@ check_for_cli_args()
 #/ return: unsigned int
 continue_question()
 {
-    while [ true ]
-    do
+    while [ true ]; do
         echo -e " Do you want continue? (y/n)? \c "
         read r
         case $r in
@@ -273,8 +270,7 @@ running()
 iam_running()
 {
     procs=0
-    for pid in $(ps -ef |grep $0 |grep -v grep|awk '{print $2}')
-    do
+    for pid in $(ps -ef |grep $0 |grep -v grep|awk '{print $2}'); do
         aux=$(ps -ef |grep $0 |grep -v grep|awk '{print $3}' |grep $pid |wc -l |tr -d ' ')
         [[ $aux -eq 0 ]] && procs=$(expr $procs + 1)
     done
