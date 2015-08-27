@@ -51,15 +51,13 @@ compare strings
 </pre>
 **loops**
 <pre>
-for value in iterable
-do
+for value in iterable; do
   ...
 done
 </pre>
 
 <pre>
-while [ conditions ]
-do
+while [ conditions ]; do
   ...
 done
 
