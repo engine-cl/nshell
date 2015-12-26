@@ -1,5 +1,5 @@
 language: shell
 before_install:
-  - yum install bc
+  - sudo apt-get install bc
 script:
   - bash test.sh
